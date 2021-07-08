@@ -16,6 +16,21 @@ l < 1% // The maximum utilization of the pool (the collective liquidity provided
 amount < 0.5% // The maximum position size as a percentage of the pool (the collective liquidity provided by options sellers).
 ```
 
+
+### Audit Changes
+|ID |Commit  | Comment|
+--- | --- | ---
+|TDO-02C|https://github.com/BIOPset/v4-contracts/pull/30/commits/e9154843cfbf064e5b859cb992f4976bc72a6ef0| Created the IERC20Named interface as suggested to reduce deployment gas costs|
+|DAO-01S|https://github.com/BIOPset/v4-contracts/pull/30/commits/94124a8efb0f35ea0be51c49fef112b2f82539ff| moved the updating of the trg variable from the sendTreasuryFunds function into the fallback function as suggested|
+|TVG-03M|https://github.com/BIOPset/v4-contracts/pull/30/commits/d07b58f95a70474dc207e7cb96b21e8f6b37c7a2| Created a dedicated "started" variable and updated the start function to prevent reuse of it |
+|DAO-04M|https://github.com/BIOPset/v4-contracts/pull/29/commits/c01bc436e8a748c3e058ae3596744cfe09edc108| Created claimpoints system that tracks the amount of BIOP staked whenever a ETH deposit is made to ensure that the right distribution % takes place. Also implemented 7 day (from last stake) lock on BIOP tokens to prevent flashloan staking|
+|APP-01S|https://github.com/BIOPset/v4-contracts/pull/28/commits/c9840161d61255c01fadb09c9953a4681e09d4e9| Add sanitization of initial constructor inputs pp_ & rc_ to ensure they aren't set to zero address|
+|URS-01C|https://github.com/BIOPset/v4-contracts/pull/28/commits/93a97e8f978b15c1e6d73884eb9576cd308a9446| set visibility for pricePoint to public|
+|BRC-03C|https://github.com/BIOPset/v4-contracts/pull/28/commits/1dec7ef39e9371dd4712b19bdde240135869ac36| introduce else clause that prevents needless recalculation of "canLock" variable|
+|TDB-06M|https://github.com/BIOPset/v4-contracts/pull/28/commits/1aea5da80712424a506aae135c46380e2f9ae3b3| update typo where input variable was not properly assigned|
+|BRC-01M|https://github.com/BIOPset/v4-contracts/pull/28/commits/6afe4953f83900ee3a1cc9bdbcef33c38dd15774| update actualRate function to make use of trade "amount" to return 0% options in the case of lack of liquidity instead of rejecting them|
+
+
 ## Contract List
 
 Here are a list of the contracts that comprize the protocol:
